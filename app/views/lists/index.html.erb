@@ -1,0 +1,34 @@
+<h1>All Task Lists</h1>
+
+<%= link_to 'New Task List', new_list_path %>
+
+<% @lists.each do |list| %> <!-- Corrigido para @lists -->
+  <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+    <div style="flex: 1;">
+      <h3><%= list.name %></h3>
+      <p><strong>Description:</strong> <%= list.description %></p>
+    </div>
+    
+    <div style="flex: 1; text-align: right;">
+      <h4>Items:</h4>
+      <% displayed_items = list.items.limit(3) %> <!-- Limita a exibição a 3 itens -->
+      <% displayed_items.each do |item| %>
+        <p><%= item.name %> 
+          <% if item.due_date.present? %>
+            (Due: <%= item.due_date %>)
+          <% end %>
+          - Status: <%= item.status.capitalize %>
+        </p>
+      <% end %>
+      <% if list.items.count > 3 %>  <!-- Verifica se há mais de 3 itens -->
+        <p>... and <%= list.items.count - 3 %> more</p> <!-- Mostra quantos itens adicionais existem -->
+      <% end %>
+    </div>
+  </div>
+
+  <div>
+    <%= link_to 'Show', list_path(list) %> |
+    <%= link_to 'Edit', edit_list_path(list) %> |
+    <%= button_to 'Destroy', list_path(list), method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+<% end %>

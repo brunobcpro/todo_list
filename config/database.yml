@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  database: todo_list_development
+  username: brunobcpro    # Substitua pelo seu usuário PostgreSQL
+  password: 202125    # Substitua pela sua senha do PostgreSQL
+  host: localhost
+  port: 5433                 # Ou 5433, dependendo de sua configuração do PostgreSQL
+
+test:
+  adapter: postgresql
+  database: todo_list_test
+  username: brunobcpro    # Substitua pelo seu usuário PostgreSQL
+  password: 202125    # Substitua pela sua senha do PostgreSQL
+  host: localhost
+  port: 5433                 # Ou 5433
+
+production:
+  adapter: postgresql
+  database: todo_list_production
+  username: brunobcpro    # Substitua pelo seu usuário PostgreSQL
+  password: 202125    # Substitua pela sua senha do PostgreSQL
+  host: localhost
+  port: 5433                 # Ou 5433

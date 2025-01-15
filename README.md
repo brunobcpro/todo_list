@@ -40,3 +40,29 @@ Este projeto foi desenvolvido como parte do processo seletivo para a vaga de **P
    ```bash
    git clone https://github.com/seu-usuario/todo_list.git
    cd todo_list
+2. **Instalar as dependências do Ruby:**
+
+Certifique-se de ter o Ruby e o Rails instalados em sua máquina. Caso não tenha, você pode utilizar o RVM ou rbenv para gerenciar versões do Ruby.
+
+Após isso, instale as dependências do Ruby:
+
+bundle install
+
+3. **Configurar o banco de dados:**
+Crie o banco de dados e execute as migrações para garantir que todas as tabelas necessárias sejam criadas corretamente:
+
+rails db:create
+rails db:migrate
+
+4. **Rodando o servidor local:**
+Para iniciar o servidor de desenvolvimento localmente, utilize o comando abaixo:
+
+rails server
+
+Após rodar o servidor, a aplicação ficará disponível em http://localhost:3000.
+
+**Agradecimentos**
+Agradecemos por revisar este projeto! Este desafio foi desenvolvido para avaliar as habilidades no desenvolvimento com Ruby on Rails, bem como o entendimento sobre conceitos de banco de dados e front-end. Se você tiver dúvidas ou sugestões, sinta-se à vontade para entrar em contato.
+
+Grupo Visagio - Projeto desenvolvido como parte do processo seletivo para a vaga de Pessoa Desenvolvedora.
+

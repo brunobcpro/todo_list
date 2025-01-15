@@ -7,10 +7,14 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    
+    <!-- Condicional para carregar o CSS específico da página "new" -->
+
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="<%= 'new-task-list-page' if controller_name == 'lists' && action_name == 'new' %>">
     <%= yield %>
   </body>
+
 </html>

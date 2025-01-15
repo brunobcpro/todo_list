@@ -1,34 +1,70 @@
-<h1>All Task Lists</h1>
-
-<%= link_to 'New Task List', new_list_path %>
-
-<% @lists.each do |list| %> <!-- Corrigido para @lists -->
-  <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-    <div style="flex: 1;">
-      <h3><%= list.name %></h3>
-      <p><strong>Description:</strong> <%= list.description %></p>
+<div class="show-page">
+  <!-- Notificação de sucesso com fundo amarelo -->
+  <% if flash[:notice] %>
+    <div id="flash-notice" class="alert" style="background-color: #fff3cd; color: #856404; position: fixed; top: 20px; right: 20px; z-index: 9999; padding: 15px; border: 1px solid #ffeeba; border-radius: 5px;">
+      <%= flash[:notice] %>
     </div>
-    
-    <div style="flex: 1; text-align: right;">
-      <h4>Items:</h4>
-      <% displayed_items = list.items.limit(3) %> <!-- Limita a exibição a 3 itens -->
-      <% displayed_items.each do |item| %>
-        <p><%= item.name %> 
-          <% if item.due_date.present? %>
-            (Due: <%= item.due_date %>)
-          <% end %>
-          - Status: <%= item.status.capitalize %>
-        </p>
-      <% end %>
-      <% if list.items.count > 3 %>  <!-- Verifica se há mais de 3 itens -->
-        <p>... and <%= list.items.count - 3 %> more</p> <!-- Mostra quantos itens adicionais existem -->
-      <% end %>
+    <script>
+      setTimeout(function() {
+        var notice = document.getElementById('flash-notice');
+        if (notice) {
+          notice.style.display = 'none';
+        }
+      }, 3000);  // A notificação desaparecerá após 3 segundos
+    </script>
+  <% end %>
+
+  <!-- Formulário para editar título -->
+  <div class="header-container" style="display: flex; justify-content: space-between; align-items: center; padding-top: 10px;">
+    <!-- Título da página -->
+    <h1 class="page-title">All Task Lists</h1>
+
+    <!-- Botão de criar nova lista -->
+    <div class="new-task-list-btn-container">
+      <%= link_to 'New Task List', new_list_path, class: 'btn btn-primary new-list-btn', style: 'text-decoration: none;' %>
     </div>
   </div>
 
-  <div>
-    <%= link_to 'Show', list_path(list) %> |
-    <%= link_to 'Edit', edit_list_path(list) %> |
-    <%= button_to 'Destroy', list_path(list), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <!-- Lista de tarefas -->
+  <div class="task-list-container" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+    <% @lists.each do |list| %>
+      <div class="task-list card mb-4">
+        <%= link_to list_path(list), class: 'task-list-link', style: 'text-decoration: none;' do %>
+          <div class="task-list-info card-body">
+            <div class="task-list-name-container">
+              <h3 class="task-list-title"><%= list.name %></h3>
+            </div>
+            <!-- Descrição formatada -->
+            <div class="task-list-description">
+              <h4>Description:</h4>
+              <p><%= list.description %></p>
+            </div>
+          </div>
+
+          <div class="task-items card-body">
+            <h4>Items:</h4>
+            <% displayed_items = list.items.limit(3) %>
+            <% displayed_items.each do |item| %>
+              <div class="task-item">
+                <p><%= item.name %></p>
+                <% if item.due_date.present? %>
+                  <p><small>Due: <%= item.due_date %></small></p>
+                <% end %>
+                <p>Status: <strong><%= item.status.capitalize %></strong></p>
+              </div>
+            <% end %>
+            <% if list.items.count > 3 %>
+              <p><small>... and <%= list.items.count - 3 %> more</small></p>
+            <% end %>
+          </div>
+        <% end %>
+
+        <div class="task-list-actions card-footer">
+          <div class="btn-actions">
+            <%= button_to '<i class="fas fa-trash-alt"></i> Destroy'.html_safe, list_path(list), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-action' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

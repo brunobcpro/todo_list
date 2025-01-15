@@ -27,7 +27,8 @@ class ListsController < ApplicationController
   def update
     @list = List.find(params[:id])
     if @list.update(list_params)
-      redirect_to @list, notice: 'Task list was successfully updated.'
+      flash[:notice] = 'Title updated successfully!'  # Mensagem de sucesso ao atualizar o título
+      redirect_to @list
     else
       render :edit
     end
@@ -43,6 +44,6 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.require(:list).permit(:name, :description)  # Adicionando o campo description
+    params.require(:list).permit(:name, :description)  # Incluindo o campo description
   end
 end

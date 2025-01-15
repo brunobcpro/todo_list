@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = @list.items.new(item_params)
+    @item.status ||= "pendente" # Define "pendente" como padrão
     if @item.save
       redirect_to list_path(@list), notice: 'Item criado com sucesso.'
     else

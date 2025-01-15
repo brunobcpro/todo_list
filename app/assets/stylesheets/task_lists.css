@@ -1,0 +1,315 @@
+/* task_lists.css */
+
+/* Estilo geral para o corpo da página */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Título principal */
+.page-title {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 1.5em;
+  /* Reduzindo o tamanho do título */
+  color: #4CAF50;
+  font-weight: bold;
+  padding-left: 30px;
+  margin-bottom: 20px;
+  /* Adicionando espaço abaixo do título */
+}
+
+/* Estilo para o container de listas */
+.task-list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  /* Reduzindo o tamanho das colunas */
+  gap: 20px;
+  /* Reduzindo o espaçamento entre os cards */
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Estilo para cada item da lista */
+.task-list {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  /* Reduzindo o padding */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.task-list:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo para o nome da lista */
+.task-list-info h3 {
+  color: #333;
+  font-size: 1.3em;
+  /* Reduzindo o tamanho do nome da lista */
+  font-weight: 600;
+}
+
+/* Estilo para a descrição da lista */
+.task-list-info p {
+  font-size: 0.9em;
+  /* Reduzindo o tamanho da descrição */
+  line-height: 1.6;
+  color: #666;
+  margin-top: 10px;
+}
+
+/* Estilo para o container de itens da lista */
+.task-items {
+  margin-top: 15px;
+}
+
+/* Botões de ação */
+.task-list-actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  /* Reduzindo o espaçamento entre os botões */
+  padding: 10px 0;
+  align-items: center;
+}
+
+/* Estilo dos botões */
+.task-list-actions .btn {
+  display: inline-block;
+  margin-right: 8px;
+  /* Reduzindo a margem entre os botões */
+  padding: 8px 18px;
+  /* Reduzindo o padding dos botões */
+  border-radius: 5px;
+  font-size: 0.9em;
+  /* Reduzindo o tamanho da fonte nos botões */
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+}
+
+.task-list-actions .btn:hover {
+  transform: scale(1.05);
+}
+
+.task-list-actions .btn-info {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.task-list-actions .btn-warning {
+  background-color: #ffc107;
+  color: white;
+}
+
+.task-list-actions .btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.task-list-actions .btn-info:hover {
+  background-color: #138496;
+}
+
+.task-list-actions .btn-warning:hover {
+  background-color: #e0a800;
+}
+
+.task-list-actions .btn-danger:hover {
+  background-color: #c82333;
+}
+
+/* Link para nova lista */
+.new-list-link {
+  display: inline-block;
+  text-align: center;
+  margin: 25px auto;
+  font-size: 1.1em;
+  /* Reduzindo o tamanho da fonte */
+  color: #fff;
+  background-color: #4CAF50;
+  padding: 10px 20px;
+  /* Reduzindo o padding do link */
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.new-list-link:hover {
+  background-color: #45a049;
+}
+
+/* Estilo do botão "Nova Lista" */
+.new-list-btn {
+  display: inline-block;
+  text-align: center;
+  margin: 20px auto;
+  font-size: 1.1em;
+  /* Reduzindo o tamanho do botão */
+  color: #fff;
+  background-color: #4CAF50;
+  padding: 10px 20px;
+  /* Reduzindo o padding do botão */
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.new-list-btn:hover {
+  background-color: #45a049;
+}
+
+/* Outros estilos de melhorias */
+.card-body {
+  padding: 15px;
+  /* Reduzindo o padding do card */
+  background-color: #fff;
+}
+
+.card-footer {
+  background-color: #f8f9fa;
+  padding: 10px;
+  text-align: center;
+}
+
+.task-item p {
+  font-size: 0.9em;
+  /* Reduzindo o tamanho do texto do item */
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.task-items p {
+  font-size: 0.9em;
+  /* Reduzindo o tamanho da descrição dos itens */
+  line-height: 1.4;
+  color: #555;
+}
+
+.task-list-name {
+  color: #333;
+  font-size: 1.3em;
+  /* Reduzindo o tamanho do nome da lista */
+  font-weight: 600;
+}
+
+.task-list-info p {
+  font-size: 0.9em;
+  /* Reduzindo o tamanho da descrição */
+  line-height: 1.6;
+  color: #666;
+}
+
+/* Estilo para o container dos botões */
+.btn-actions {
+  display: flex;
+  /* Cria um layout flexível */
+  justify-content: space-between;
+  /* Distribui os botões igualmente */
+  gap: 8px;
+  /* Reduzindo o espaçamento entre os botões */
+  /* Espaçamento entre os botões */
+}
+
+/* Garante alinhamento central */
+.btn-actions .btn {
+  flex: 1;
+  /* Opcional: Faz os botões terem o mesmo tamanho */
+  text-align: center;
+}
+
+/* Estilo para o campo de edição do nome da lista */
+.task-list-name-edit {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+  border: none;
+  background-color: #f4f4f9;
+  padding: 5px 10px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.task-list-name-edit:focus {
+  outline: none;
+  border: 2px solid #4CAF50;
+  background-color: #fff;
+}
+
+/* Estilo para o campo de edição do nome da lista */
+.task-list-name-edit-container {
+  margin-bottom: 10px;
+  /* Margem inferior para evitar sobreposição */
+}
+
+.task-list-name-edit {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+  border: 1px solid #ccc;
+  background-color: #f4f4f9;
+  padding: 5px 10px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  transition: border 0.3s ease-in-out;
+}
+
+.task-list-name-edit:focus {
+  outline: none;
+  border: 2px solid #4CAF50;
+  background-color: #fff;
+}
+
+.task-list-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.new-task-list-btn-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  width: 60%;
+}
+
+.new-task-list-btn {
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.3s;
+  margin-right: 20px;
+}
+
+.new-task-list-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.new-task-list-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+  /* Permite quebrar linha caso necessário */
+  gap: 10px;
+  /* Adiciona espaçamento entre o título e o botão */
+}
